@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<conio.h>
+#include<iostream>
+#include<string>
+using namespace std;
+class car
+{
+    public:
+    string colour;
+    char type;
+    car()                       //for 7 year old ,default constructor
+    {
+        colour="red";
+        type='1';
+    }
+    car(string a, char b)               //for custom cars ,parameterized constructors
+    {
+        colour=a;
+        type=b;
+    }
+    car(car &c)
+    {
+        colour=c.colour;
+        type=c.type;
+    }
+    void disp()
+    {
+        cout<<"colour of the car is "<<colour;
+        cout<<"\ntype of the car is ";
+        if(type=='1')
+        cout<<"remote with AA batteries\n";
+        else if(type=='2')
+        cout<<"mobile controller app\n";
+        else if(type=='3')
+        cout<<"voice control";
+    }
+};
+
+int main()
+ {
+     char t,t2;
+     car stock;
+     stock.colour="blue";
+     stock.type='1';
+     cout<<"choose type of car :\n\n '1'\tfor kids car(<7 years)\n'2'\tfor stock car\n'3'\tfor custom car\n\n";
+     cin>>t;
+     if(t=='1')
+     {
+         car a;
+         a.disp();
+     }
+     if(t=='2')
+     {
+         //clrscr();
+         stock.disp();
+     }
+     if(t=='3')
+     {
+        
+        char ty;
+        string col;
+        cout<<"\nenter the colour of the car\t";
+        cin>>col;
+        cout<<"\n\n enter the type of the car\n\n'1'\tfor remote control with AA batteries\n'2'\tmobile app controller\n'3'\taudio controller\n\n";
+        cin>>ty;
+        car spec(col,ty);
+        //clrscr();
+        spec.disp();
+     }
+     return 0;
+     
+ }
