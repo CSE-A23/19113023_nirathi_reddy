@@ -1,0 +1,92 @@
+/*1. Length is Min 6 and Max 20
+2. It must contain at least  one r
+3. It can contain only the following special characters #$!@
+4. Must never contain space
+
+The input is as TC - no. Of  testcases and continued by TC no.of strings 
+
+The output is as 
+ReeWord if is satisfies the criteria
+Nay! If it doesn't satisfy
+
+Sample 1
+Input 
+2
+Remember
+Shama$
+Output
+ReeWord
+ReeWord
+
+Sample 2
+Input 
+4
+R$$
+Lovers
+Gth this
+#$@!rr
+Output
+Nay!
+ReeWord
+Nay!
+ReeWord
+*/
+#include<iostream>
+#include<string>
+#include<conio.h>
+#include<stdio.h>
+using namespace std;
+ bool check(string &s)
+ {
+     int chk=0;
+     for(int i=0;i<=s.length();i++)
+     {
+         if(s[i]=='r'&&chk==0)
+          {
+              chk=1;
+              //cout<<"\nr exists";
+          }
+         if(s[i]!='@'&&s[i]!=0&&s[i]!='!'&&s[i]!='#'&&s[i]!='$'&&(!(s[i]>='A'&&s[i]<='Z'))&&(!(s[i]>='a'&&s[i]<='z'))&&(!(s[i]>='0'&&s[i]<='9')))
+         {
+             chk=2;
+             //cout<<"\ninvalid special char existsy\t"<<s[i];
+         }     
+     }
+     if(chk!=1)
+     {
+         //cout<<"\nchar problem";
+         return false;
+     }     
+     chk=0;
+     if(s.length()>=6&&s.length()<=20)
+      {
+          chk=1;
+         //cout<<"\nlength valid";
+      }      
+     if(chk!=1)
+      {
+         // cout<<"\nlength invalid";
+          return false;
+      }      
+     else
+     return true;
+ }
+  main()
+ {
+     int n;
+     cin>>n;
+     cin>>ws;
+     for(int i=0;i<n;i++)
+     {
+         string s;
+         
+         getline(cin,s);
+         //cout<<"\n"<<s<<"\n";
+         if(check(s))
+         cout<<"reeword\n";
+         else 
+         cout<<"nay !\n";
+     }
+     return 0;
+ }     
+     
